@@ -28,7 +28,7 @@ class Event
      * @param $isPrivate
      * @param $cost
      */
-    public function __construct($title, $description, $goal, $dateOfEvent, $isPrivate, $cost)
+    public function __construct(string $title, string $description, string $goal, \DateTime $dateOfEvent, bool $isPrivate, int $cost)
     {
         $this->title = $title;
         $this->description = $description;

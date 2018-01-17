@@ -12,19 +12,19 @@ namespace Metinet\Domain;
 class Address
 {
     private $city;
-    private $postalCode;
+    private $zipCode;
     private $address;
 
     /**
      * Address constructor.
      * @param $city
-     * @param $postalCode
+     * @param $zipCode
      * @param $address
      */
-    public function __construct(string $city, string $postalCode, string $address)
+    public function __construct(string $city, string $zipCode, string $address)
     {
         $this->city = $city;
-        $this->postalCode = $postalCode;
+        $this->zipCode = $zipCode;
         $this->address = $address;
     }
 
@@ -47,17 +47,17 @@ class Address
     /**
      * @return mixed
      */
-    public function getPostalCode()
+    public function getZipCode()
     {
-        return $this->postalCode;
+        return $this->zipCode;
     }
 
     /**
-     * @param mixed $postalCode
+     * @param mixed $zipCode
      */
-    public function setPostalCode($postalCode): void
+    public function setZipCode($zipCode): void
     {
-        $this->postalCode = $postalCode;
+        $this->zipCode = $zipCode;
     }
 
     /**
