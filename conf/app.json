@@ -1,6 +1,6 @@
 {
   "logger": {
-    "type": "mysql",
+    "type": "blackhole",
     "path": "../var/logs/debug.log",
     "format": "[%date%] - %url% - %message%"
   },
@@ -11,6 +11,13 @@
         "GET"
       ],
       "action": "Metinet:Controllers:CandidatesController::retrieveMemberList"
+    },
+    "event": {
+      "path": "/events",
+      "methods": [
+        "GET"
+      ],
+      "action": "Metinet:Controllers:EventController::retrieveEventList"
     },
     "hello": {
       "path": "/hello",

@@ -7,6 +7,13 @@
       ],
       "action": "Metinet:Controllers:CandidatesController::retrieveMemberList"
     },
+    "event": {
+      "path": "/events",
+      "methods": [
+        "GET"
+      ],
+      "action": "Metinet:Controllers:EventController::retrieveEventList"
+    },
     "hello": {
       "path": "/hello",
       "methods": [

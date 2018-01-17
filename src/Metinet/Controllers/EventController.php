@@ -61,11 +61,11 @@ class EventController
     public  function retrieveEventList(Request $request): Response
     {
         $events = [
-            ['tile' => 'Réunion des anciens', 'description' => 'Belle salle', 'goal' => 'Réunion', 'numbersPersonAllowed' => '25', 'day' => '2018/01/18', 'timeSlot' => '', 'nameRoom' => 'Demi-lune', 'adress' => '123 rue', 'typeEvent' => 'false', 'cost' => '250']
+            ['title' => 'Réunion des anciens', 'description' => 'Belle salle', 'goal' => 'Réunion', 'numbersPersonAllowed' => '25', 'day' => '2018/01/18', 'nameRoom' => 'Demi-lune', 'adress' => '123 rue', 'typeEvent' => 'false', 'cost' => '250']
         ];
         $content = sprintf('<p>Affiche la liste des Events</p>');
         foreach ($events as $event) {
-            $content .= sprintf('<li>%s</li>', $event['name']);
+            $content .= sprintf('<li>%s le %s dans la salle %s </li>', $event['title'], $event['day'], $event['nameRoom']);
         }
 
         return new Response($content);
