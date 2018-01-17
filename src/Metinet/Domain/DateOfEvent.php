@@ -13,24 +13,27 @@ class DateOfEvent
 {
     private $dateOfEvent;
 
-    public static function fromString(string $dateOfEvent): self
-    {
-        return new self($dateOfEvent);
+    /**
+     * DateOfEvent constructor.
+     * @param \DateTime $dateOfEvent
+     * @param \DateTimeInterface $duration
+     */
+    private function __construct(\DateTime $dateOfEvent, \DateTimeInterface $duration)
+     {
+         if($dateOfEvent > new \DateTime()) {
+             throw InvalidDateOfEvent::mustNotBeInThePast();
+         }
+
+        $this->dateOfEvent = $dateOfEvent;
     }
 
-    public function toAge(): int
-    {
-        return (new \DateTimeImmutable('now'))->diff($this->dateOfEvent)->y;
-    }
+     public static function fromString(string $dateOfEvent): self
+     {
+            return new self(new \DateTime($dateOfEvent));
+     }
 
-    private function __construct(string $dateOfEvent)
-    {
-        $dateOfEventAsDateTime = \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', sprintf('%s 23:59:59', $dateOfEvent));
-        if ($dateOfEventAsDateTime > new \DateTimeImmutable('now')) {
-
-            throw InvalidDateOfEvent::mustNotBeInTheFuture();
-        }
-
-        $this->dateOfEvent = $dateOfEventAsDateTime;
-    }
+     public static function fromDateTime(\DateTime $dateOfEvent): self
+     {
+            return new self($dateOfEvent);
+     }
 }

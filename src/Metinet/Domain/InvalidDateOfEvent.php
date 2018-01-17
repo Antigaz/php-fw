@@ -11,7 +11,7 @@ namespace Metinet\Domain;
 
 class InvalidDateOfEvent
 {
-    public static function mustNotBeInTheFuture(): self
+    public static function mustNotBeInThePast(): self
     {
         return new self('Date Of Event cannot be in the future');
     }
