@@ -61,5 +61,10 @@
       "methods": ["GET"],
       "action": "Metinet:Controllers:SecurityController::logout"
     }
+  },
+    "security_signup": {
+      "path": "/signup",
+      "methods": ["GET"],
+      "action": "Metinet:Controllers:SecurityController::signUp"
   }
 }

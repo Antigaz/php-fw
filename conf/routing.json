@@ -27,6 +27,11 @@
         "GET"
       ],
       "action": "Metinet:Controllers:CandidatesController::disBonjour"
+    },
+    "security_signup": {
+      "path": "/signup",
+      "methods": ["GET"],
+      "action": "Metinet:Controllers:SecurityController::signUp"
     }
   }
 }
